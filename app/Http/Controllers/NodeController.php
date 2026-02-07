@@ -10,7 +10,7 @@ class NodeController extends Controller
 {
     public function index()
     {
-        $nodes = Node::all();
+        $nodes = Node::with('tags')->get();
         return view('nodes.partials.list', [
             'nodes' => $nodes
         ]);
