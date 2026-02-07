@@ -2,13 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\NodeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('app.index');
-});
+Route::get('/', [AppController::class, 'index']);
 
-Route::get('/app', [AppController::class, 'index']);
+Route::get('/app', [NodeController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

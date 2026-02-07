@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://unpkg.com/htmx.org@latest"></script>
     </head>
     <body>
 
@@ -24,5 +25,7 @@
             @yield('content')
         </main>
         
+        @yield('scripts')
+
         </body>
 </html>
