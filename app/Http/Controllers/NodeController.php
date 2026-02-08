@@ -55,6 +55,7 @@ class NodeController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'nullable|string',
+            'x_pos' => 'nullable|string',
         ]);
 
         $node->update($data);

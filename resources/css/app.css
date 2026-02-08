@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 10% !important;
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    transition: transform 0.05s ease, box-shadow 0.05s ease;
+    z-index: 10;
+}
+.glass-card:hover {
+    opacity: 1;
+}
+
+.draggable-node:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+    z-index: 1000;
+}
