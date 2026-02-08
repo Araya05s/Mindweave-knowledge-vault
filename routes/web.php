@@ -9,6 +9,25 @@ Route::get('/', [AppController::class, 'index']);
 
 Route::get('/app', [NodeController::class, 'index']);
 
+Route::get('/app/nodes/form', function () {
+    return view('app.partials.node_form');
+});
+
+Route::post('/app/nodes', [NodeController::class, 'createnode']);
+
+Route::prefix('app')->group(function () {
+    Route::get('nodes/{node}/edit', [NodeController::class, 'edit'])->name('nodes.edit');
+});
+Route::prefix('app')->group(function () {
+    Route::put('nodes/{node}/update', [NodeController::class, 'update'])->name('nodes.update');
+});
+Route::prefix('app')->group(function () {
+    Route::delete('nodes/{node}/delete', [NodeController::class, 'delete'])->name('nodes.delete');
+});
+Route::get('/app/nodes/form/close', function () {
+    return '';
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
