@@ -11,7 +11,9 @@ class Node extends Model
 
     protected $fillable = [
         'title',
-        'content'
+        'content',
+        'x_pos',
+        'y_pos'
     ];
 
     public function tags(): BelongsToMany {

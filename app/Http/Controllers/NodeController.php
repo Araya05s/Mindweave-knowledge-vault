@@ -45,6 +45,18 @@ class NodeController extends Controller
         ]);
     }
 
+    public function move(Request $request, Node $node)
+    {
+        $validated = $request->validate([
+            'x_pos' => 'required|numeric',
+            'y_pos' => 'required|numeric',
+        ]);
+
+        $node->update($validated);
+
+        return response()->json(['status' => 'success']);
+    }
+    
     public function edit(Node $node)
     {
         return view('nodes.partials.form', compact('node'));

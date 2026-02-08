@@ -21,11 +21,14 @@ Route::prefix('app')->group(function () {
 Route::prefix('app')->group(function () {
     Route::put('nodes/{node}/update', [NodeController::class, 'update'])->name('nodes.update');
 });
-Route::prefix('app')->group(function () {
+Route::prefix(prefix: 'app')->group(function () {
     Route::delete('nodes/{node}/delete', [NodeController::class, 'delete'])->name('nodes.delete');
 });
 Route::get('/app/nodes/form/close', function () {
     return '';
+});
+Route::prefix('app')->group(function () {
+    Route::patch('nodes/{node}/move', [NodeController::class, 'move'])->name('nodes.move');
 });
 
 Route::get('/dashboard', function () {

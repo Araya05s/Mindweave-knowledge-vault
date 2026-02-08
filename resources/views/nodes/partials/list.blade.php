@@ -7,14 +7,14 @@
         No nodes found.
     </div>
 @else
-    <div class="list-group" id="sortable-nodes" style="position: relative; width: 100vw; height: 100vh; overflow: hidden;">
+    <div id="sortable-nodes" style="position: relative; width: 100%; height: 60vh; overflow: hidden;">
         @foreach($nodes as $node)
             <div 
                 id="node_{{ $node->id }}" 
                 data-id="{{ $node->id }}"
                 data-x="{{ $node->x_pos ?? 0 }}"
                 data-y="{{ $node->y_pos ?? 0 }}"
-                class="draggable-node card glass-card shadow-sm rounded-4 mb-3"
+                class="list-group draggable-node card glass-card shadow-sm rounded-4 mb-3"
                 style="position: absolute; left: {{ $node->x_pos ?? 50 }}px; top: {{ $node->y_pos ?? 50 }}px; border-left: 8px solid {{ optional($node->tags->first())->color ?? '#6c757d' }} !important;"
             >
                 <div class="card-body">
