@@ -39,10 +39,31 @@ class NodeController extends Controller
 
             $node->tags()->syncWithoutDetaching([$tag->id]);
         }
+        
 
         return view('nodes.partials.list', [
             'nodes' => Node::with('tags')->get()
         ]);
+    }
+
+    public function check(Request $request)
+    {
+        $name = $request->input('tag_name');
+
+        // If empty, return nothing
+        if (empty($name)) {
+            return '';
+        }
+
+        $exists = Tag::where('name', $name)->exists();
+
+        if ($exists) {
+            return '<small class="text-danger fw-bold">
+                        <i class="bi bi-exclamation-triangle"></i> This tag name already exists! tag color changes will be ignored.
+                    </small>';
+        }
+
+        return '<small class="text-success">Name available</small>';
     }
 
     public function move(Request $request, Node $node)

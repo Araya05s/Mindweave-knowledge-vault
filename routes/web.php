@@ -13,7 +13,12 @@ Route::get('/app/nodes/form', function () {
     return view('app.partials.node_form');
 });
 
+
 Route::post('/app/nodes', [NodeController::class, 'createnode']);
+
+Route::prefix(prefix: 'app')->group(function () {
+    Route::post('nodes/check', [NodeController::class, 'check'])->name('nodes.check');
+});
 
 Route::prefix('app')->group(function () {
     Route::get('nodes/{node}/edit', [NodeController::class, 'edit'])->name('nodes.edit');

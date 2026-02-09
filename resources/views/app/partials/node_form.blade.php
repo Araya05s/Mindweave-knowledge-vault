@@ -31,7 +31,12 @@
             type="text"
             name="tag_name"
             class="form-control"
+            hx-post="{{ route('nodes.check') }}"
+            hx-trigger="keyup changed delay:500ms"
+            hx-target="#tag-warning"
+            hx-sync="closest form:abort"
         >
+        <div id="tag-warning" class="mt-1"></div>
     </div>
 
     <div class="mb-3">

@@ -32,7 +32,7 @@
                             @if($node->relationLoaded('tags') && $node->tags->isNotEmpty())
                                 <div class="d-flex flex-wrap gap-1">
                                     @foreach($node->tags as $tag)
-                                        <span class="badge rounded-pill opacity-75" style="background-color: {{ $tag->color }};">
+                                        <span class="card-text" style="background-color: {{ $tag->color }};">
                                             {{ $tag->name }}
                                         </span>
                                     @endforeach
