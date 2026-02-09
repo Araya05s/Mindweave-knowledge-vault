@@ -10,38 +10,38 @@ Alpine.start();
 interact('.draggable-node').draggable({
     listeners: {
         move(event) {
-            const el = event.target;
+            const target = event.target;
 
-            let x = (parseFloat(el.dataset.x) || 0) + event.dx;
-            let y = (parseFloat(el.dataset.y) || 0) + event.dy;
+            let x = (parseFloat(target.dataset.x) || 0) + event.dx;
+            let y = (parseFloat(target.dataset.y) || 0) + event.dy;
 
-            el.style.left = `${x}px`;
-            el.style.top = `${y}px`;
+            target.style.left = `${x}px`;
+            target.style.top = `${y}px`;
 
-            el.dataset.x = x;
-            el.dataset.y = y;
+            target.dataset.x = x;
+            target.dataset.y = y;
         },
 
         end(event) {
-            const el = event.target;
+            const target = event.target;
             const container = document.getElementById('sortable-nodes');
 
-            let x = Number(el.dataset.x);
-            let y = Number(el.dataset.y);
+            let x = Number(target.dataset.x);
+            let y = Number(target.dataset.y);
 
-            const maxX = container.clientWidth - el.offsetWidth;
-            const maxY = container.clientHeight - el.offsetHeight;
+            const maxX = container.clientWidth - target.offsetWidth;
+            const maxY = container.clientHeight - target.offsetHeight;
 
             x = Math.max(0, Math.min(x, maxX));
             y = Math.max(0, Math.min(y, maxY));
 
-            el.style.left = `${x}px`;
-            el.style.top = `${y}px`;
+            target.style.left = `${x}px`;
+            target.style.top = `${y}px`;
 
-            el.dataset.x = x;
-            el.dataset.y = y;
+            target.dataset.x = x;
+            target.dataset.y = y;
 
-            fetch(`/app/nodes/${el.dataset.id}/move`, {
+            fetch(`/app/nodes/${target.dataset.id}/move`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

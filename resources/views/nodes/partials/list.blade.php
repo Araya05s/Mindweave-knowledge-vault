@@ -15,7 +15,7 @@
                 data-x="{{ $node->x_pos ?? 0 }}"
                 data-y="{{ $node->y_pos ?? 0 }}"
                 class="list-group draggable-node card glass-card shadow-sm rounded-4 mb-3"
-                style="position: absolute; left: {{ $node->x_pos ?? 50 }}px; top: {{ $node->y_pos ?? 50 }}px; border-left: 8px solid {{ optional($node->tags->first())->color ?? '#6c757d' }} !important;"
+                style="position: absolute; left: {{ $node->x_pos ?? 50 }}px; top: {{ $node->y_pos ?? 50 }}px; min-width: 30vh; border-left: 8px solid {{ optional($node->tags->first())->color ?? '#6c757d' }} !important;"
             >
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-start">
