@@ -95,7 +95,7 @@ class NodeController extends Controller
 
         $node->load('tags');
 
-        return view('nodes.partials.list', compact('node'));
+        return response()->noContent()->withHeaders(['HX-Refresh' => 'true']);
     }
 
     public function delete(Node $node)

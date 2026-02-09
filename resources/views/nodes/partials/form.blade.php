@@ -1,10 +1,10 @@
 <form
     hx-put="{{ route('nodes.update', $node) }}"
     hx-target="#node_{{ $node->id }}"
-    hx-swap="outerHTML"
+    hx-swap="innerHTML"
 >
     @csrf
-    @method('PUT') {{-- Required if your Laravel route is defined as Route::put --}}
+    @method('PUT')
 
     <div class="mb-2">
         <label class="form-label">Title</label>
@@ -27,7 +27,11 @@
     </div>
 
     <div class="d-flex gap-2">
-        <button type="submit" class="btn btn-primary">
+        <button 
+        type="submit" 
+        class="btn btn-primary"
+        hx-on::after-request="if(event.detail.successful) window.location.reload()"
+        >
             Save Changes
         </button>
 

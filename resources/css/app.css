@@ -23,3 +23,11 @@
     transform: scale(1.1);
     z-index: 1000;
 }
+
+.rope-line {
+    stroke: #6c757d;
+    stroke-width: 4;
+    stroke-dasharray: 10 6;
+    stroke-linecap: round;
+    opacity: 0.8;
+}

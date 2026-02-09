@@ -41,7 +41,10 @@
                         </div>
 
                         <div class="d-flex flex-column gap-1 ms-3">
-                            <button class="btn btn-sm btn-link text-primary p-0" hx-get="{{ route('nodes.edit', $node) }}" hx-target="#node_form_area">
+                            <button class="btn btn-sm btn-link text-primary p-0" 
+                                    hx-get="{{ route('nodes.edit', $node) }}" 
+                                    hx-target="#node_form_area"
+                                    hx-swap="outerHTML">
                                 Edit
                             </button>
                             <button class="btn btn-sm btn-link text-danger p-0" 
