@@ -7,7 +7,7 @@
     <form
         hx-post="/app/nodes"
         hx-target="#nodes-area"
-        hx-swap="beforeend"
+        hx-swap="innerHTML"
         hx-on="htmx:afterRequest: closeNodeModal()"
         class="card card-body"
     >
