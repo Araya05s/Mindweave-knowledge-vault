@@ -69,7 +69,7 @@
                 class="btn btn-secondary"
                 hx-get="/app/nodes/form/close"
                 hx-target="#node_form_area"
-                hx-swap="innerHTML"
+                data-bs-dismiss="modal"
             >
                 Cancel
             </button>
