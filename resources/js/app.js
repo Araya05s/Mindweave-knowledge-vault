@@ -7,6 +7,30 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
+document.body.addEventListener('htmx:afterRequest', function (evt) {
+    if (evt.detail.elt.tagName === 'FORM') {
+        const modalElement = document.getElementById('nodeModal');
+        const modalInstance = bootstrap.Modal.getInstance(modalElement);
+        if (modalInstance) {
+            modalInstance.hide();
+        }
+    }
+});
+
+function showNodeModal() {
+    const modalElement = document.getElementById('nodeModal');
+    const modal = new bootstrap.Modal(modalElement);
+    modal.show();
+}
+
+function closeNodeModal() {
+    const modalElement = document.getElementById('nodeModal');
+    const modal = bootstrap.Modal.getInstance(modalElement);
+    if (modal) {
+        modal.hide();
+    }
+}
+
 interact('.draggable-node').draggable({
     listeners: {
         move(event) {

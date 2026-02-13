@@ -21,10 +21,18 @@
                 hx-get="/app/nodes/form"
                 hx-target="#node_form_area"
                 hx-swap="innerHTML"
-            >
+                data-bs-toggle="modal"
+                data-bs-target="#nodeModal"
+                >
                 + Node
             </button>
         </div>
     
-        <div id="node_form_area" class="mt-3"></div>
+        {{-- <div id="node_form_area" class="mt-3"></div> --}}
+        <div class="modal fade" id="nodeModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" id="node_form_area">
+                </div>
+            </div>
+        </div>
 @endsection
