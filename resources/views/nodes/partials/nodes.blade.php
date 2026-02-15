@@ -7,7 +7,7 @@
         No nodes found.
     </div>
 @else
-    <div id="sortable-nodes" style="position: relative; width: 100%; height: 60vh; overflow: hidden;">
+    <div id="sortable-nodes" class="node-area" style="position: relative; width: 100%; height: 60vh; overflow: hidden;">
         @foreach($nodes as $node)
             <div 
                 id="node_{{ $node->id }}" 

@@ -1,13 +1,18 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
+:root {
+    --background-grid-color: #88aaee;
+    --background-fill-color: #fffcf8;
+}
+
+body{
+    background-color: var(--background-fill-color);
+}
+
 .glass-card {
-    background: rgba(255, 255, 255, 0.4) !important;
-    backdrop-filter: blur(10px) saturate(180%);
-    border-radius: 10% !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(8px) saturate(180%);
+    border-radius: 25% !important;
     -webkit-backdrop-filter: blur(10px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     cursor: grab;
@@ -24,6 +29,31 @@
     cursor: grabbing;
     transform: scale(1.1);
     z-index: 1000;
+}
+
+.node-area {
+    border-radius: 2rem; 
+    border: 3px solid var(--background-grid-color);
+
+    background-color: var(--background-fill-color);
+    background-image:
+        linear-gradient(
+        to right,
+        var(--background-grid-color) 0,
+        var(--background-grid-color) 1px,
+        transparent 1px,
+        transparent 100%
+        ),
+        linear-gradient(
+        to bottom,
+        var(--background-grid-color) 0,
+        var(--background-grid-color) 1px,
+        transparent 1px,
+        transparent 100%
+        )
+    ;
+    background-position: 25px 0, 0 0;
+    background-size: 50px 50px;
 }
 
 .rope-line {
