@@ -1,11 +1,20 @@
 import './bootstrap';
 import interact from 'interactjs';
+import './ropes.js';
 
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
 
 Alpine.start();
+
+document.body.addEventListener("htmx:afterSwap", function (evt) {
+    if (document.getElementById("ropes-area")) {
+        window.RopeSystem.init();
+    } else {
+        console.error("RopeSystem not loaded");
+    }
+});
 
 document.body.addEventListener('htmx:afterRequest', function (evt) {
     if (evt.detail.elt.tagName === 'FORM') {
@@ -16,20 +25,6 @@ document.body.addEventListener('htmx:afterRequest', function (evt) {
         }
     }
 });
-
-function showNodeModal() {
-    const modalElement = document.getElementById('nodeModal');
-    const modal = new bootstrap.Modal(modalElement);
-    modal.show();
-}
-
-function closeNodeModal() {
-    const modalElement = document.getElementById('nodeModal');
-    const modal = bootstrap.Modal.getInstance(modalElement);
-    if (modal) {
-        modal.hide();
-    }
-}
 
 interact('.draggable-node').draggable({
     listeners: {

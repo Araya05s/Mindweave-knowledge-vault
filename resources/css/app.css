@@ -56,10 +56,9 @@ body{
     background-size: 50px 50px;
 }
 
-.rope-line {
-    stroke: #6c757d;
-    stroke-width: 4;
-    stroke-dasharray: 10 6;
-    stroke-linecap: round;
-    opacity: 0.8;
+#ropes-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }

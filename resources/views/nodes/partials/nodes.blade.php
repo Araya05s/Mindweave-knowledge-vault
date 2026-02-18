@@ -8,16 +8,18 @@
     </div>
 @else
     <div id="sortable-nodes" class="node-area" style="position: relative; width: 100%; height: 60vh; overflow: hidden;">
+        <canvas id="ropes-area" style="position:absolute; top:0; left:0; z-index:1;"></canvas>
         @foreach($nodes as $node)
             <div 
                 id="node_{{ $node->id }}" 
                 data-id="{{ $node->id }}"
                 data-x="{{ $node->x_pos ?? 0 }}"
                 data-y="{{ $node->y_pos ?? 0 }}"
+                data-tags='@json($node->tags->pluck("id"))'
                 class="list-group draggable-node card glass-card shadow-sm rounded-4 mb-3"
                 style="position: absolute; left: {{ $node->x_pos ?? 50 }}px; top: {{ $node->y_pos ?? 50 }}px; min-width: 30vh; border-left: 8px solid {{ optional($node->tags->first())->color ?? '#6c757d' }} !important;"
             >
-                <div class="card-body">
+                <div id="node-card" class="card-body">
                     <div class="d-flex justify-content-between align-items-start">
                         <div class="flex-grow-1">
                             <div class="d-flex align-items-center gap-2 mb-1">
