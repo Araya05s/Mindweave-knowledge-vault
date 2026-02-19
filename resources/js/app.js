@@ -8,7 +8,7 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-document.body.addEventListener("htmx:afterSwap", function (evt) {
+document.body.addEventListener("htmx:afterSwap", function () {
     if (document.getElementById("ropes-area")) {
         window.RopeSystem.init();
     } else {
