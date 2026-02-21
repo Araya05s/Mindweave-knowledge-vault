@@ -8,7 +8,8 @@
     </div>
 @else
     <div id="sortable-nodes" class="node-area" style="position: relative; width: 100%; height: 60vh; overflow: hidden;">
-        <canvas id="ropes-area" style="position:absolute; top:0; left:0; z-index:1;"></canvas>
+        <div class="graph-bg"></div>
+        <canvas id="ropes-area"></canvas>
         @foreach($nodes as $node)
             <div 
                 id="node_{{ $node->id }}" 

@@ -3,23 +3,37 @@
 :root {
     --background-grid-color: #88aaee;
     --background-fill-color: #fffcf8;
+    --bg-main: #f5f3ef;
+    --text-main: #1f1f1f;
+    --accent: #c26a2e;
+    --accent-soft: #e6c3aa;
+    --border-soft: rgba(0,0,0,0.08);
 }
 
 body{
-    background-color: var(--background-fill-color);
+    background: var(--bg-main);
+    color: var(--text-main);
 }
+
+.kv-title {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+}
+
 
 .glass-card {
     background: rgba(255, 255, 255, 0.2) !important;
     backdrop-filter: blur(8px) saturate(180%);
     border-radius: 25% !important;
     -webkit-backdrop-filter: blur(10px) saturate(180%);
+    isolation: isolate;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     cursor: grab;
     touch-action: none;
     user-select: none;
     transition: transform 0.05s ease, box-shadow 0.05s ease;
-    z-index: 10;
+    z-index: 2;
 }
 .glass-card:hover {
     opacity: 1;
@@ -31,9 +45,16 @@ body{
     z-index: 1000;
 }
 
-.node-area {
+.node-area{
+    position: relative;
+    overflow: hidden;
     border-radius: 2rem; 
     border: 3px solid var(--background-grid-color);
+}
+.graph-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
 
     background-color: var(--background-fill-color);
     background-image:
@@ -54,11 +75,12 @@ body{
     ;
     background-position: 25px 0, 0 0;
     background-size: 50px 50px;
+    z-index: 0;
 }
 
 #ropes-area {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     z-index: 1;
+    pointer-events: none;
 }
