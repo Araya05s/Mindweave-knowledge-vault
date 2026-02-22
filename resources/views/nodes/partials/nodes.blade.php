@@ -1,7 +1,5 @@
 @php use Illuminate\Support\Str; @endphp
 
-<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-
 @if($nodes->isEmpty())
     <div class="alert alert-secondary">
         No nodes found.

@@ -51,7 +51,7 @@ body{
     position: relative;
     overflow: hidden;
     border-radius: 2rem;
-    border: 3px solid var(--bg-primary);
+    border: 3px solid var(--bs-primary-border-subtle);
 }
 .graph-bg {
     position: absolute;
