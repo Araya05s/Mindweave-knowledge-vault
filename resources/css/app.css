@@ -1,8 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 :root {
-    --background-grid-color: #88aaee;
-    --background-fill-color: #fffcf8;
+    --bg-primary: #88aaee;
+    --bg-secondary: #fffcf8;
     --bg-main: #f5f3ef;
     --text-main: #1f1f1f;
     --accent: #c26a2e;
@@ -21,12 +21,16 @@ body{
     font-size: 1.2rem;
 }
 
+.container {
+    position: relative;
+  }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(8px) saturate(180%);
+    background: var(--bs-body-bg);
+    color: var(--bs-dark);
+    backdrop-filter: blur(16px) saturate(180%);
     border-radius: 25% !important;
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     isolation: isolate;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     cursor: grab;
@@ -48,27 +52,27 @@ body{
 .node-area{
     position: relative;
     overflow: hidden;
-    border-radius: 2rem; 
-    border: 3px solid var(--background-grid-color);
+    border-radius: 2rem;
+    border: 3px solid var(--bg-primary);
 }
 .graph-bg {
     position: absolute;
     inset: 0;
     z-index: 0;
 
-    background-color: var(--background-fill-color);
+    background-color: var(--bg-secondary);
     background-image:
         linear-gradient(
         to right,
-        var(--background-grid-color) 0,
-        var(--background-grid-color) 1px,
+        var(--bg-primary) 0,
+        var(--bg-primary) 1px,
         transparent 1px,
         transparent 100%
         ),
         linear-gradient(
         to bottom,
-        var(--background-grid-color) 0,
-        var(--background-grid-color) 1px,
+        var(--bg-primary) 0,
+        var(--bg-primary) 1px,
         transparent 1px,
         transparent 100%
         )
