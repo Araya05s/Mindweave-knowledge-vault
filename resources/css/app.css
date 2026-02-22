@@ -31,8 +31,6 @@ body{
     backdrop-filter: blur(16px) saturate(180%);
     border-radius: 25% !important;
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    isolation: isolate;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     cursor: grab;
     touch-action: none;
     user-select: none;
@@ -60,19 +58,19 @@ body{
     inset: 0;
     z-index: 0;
 
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-body-color);
     background-image:
         linear-gradient(
         to right,
-        var(--bg-primary) 0,
-        var(--bg-primary) 1px,
+        var(--bs-light-text-emphasis) 0,
+        var(--bs-light-text-emphasis) 1px,
         transparent 1px,
         transparent 100%
         ),
         linear-gradient(
         to bottom,
-        var(--bg-primary) 0,
-        var(--bg-primary) 1px,
+        var(--bs-light-text-emphasis) 0,
+        var(--bs-light-text-emphasis) 1px,
         transparent 1px,
         transparent 100%
         )
