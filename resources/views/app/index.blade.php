@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="container py-4">
-            <h1>Mindweave</h1>
-            <p>This is the core app view. Still W.I.P</p>
-
+        <div class="py-2" style="padding: 8px 38px;">
             <div
             id="nodes-area"
             hx-get="/app"
@@ -27,7 +24,7 @@
                 + Node
             </button>
         </div>
-    
+
         <div class="modal fade" id="nodeModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" id="node_form_area">

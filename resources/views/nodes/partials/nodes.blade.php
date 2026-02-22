@@ -7,7 +7,7 @@
         No nodes found.
     </div>
 @else
-    <div id="sortable-nodes" class="node-area" style="position: relative; width: 100%; height: 60vh; overflow: hidden;">
+    <div id="sortable-nodes" class="node-area" style="width: 100%; height: 80vh; overflow: hidden;">
         <div class="graph-bg"></div>
         <div class="container">
             <canvas id="ropes-area"></canvas>
@@ -26,7 +26,7 @@
                             <div class="flex-grow-1">
                                 <div class="d-flex align-items-center gap-2 mb-1">
                                     <i class="bi bi-grip-vertical text-muted drag-handle" style="cursor: grab;"></i>
-                                    <h5 class=" mb-0">{{ $node->title }}</h5>
+                                    <h5 class="card-title mb-0">{{ $node->title }}</h5>
                                 </div>
 
                                 <p class="card-text text-muted mb-2 small">

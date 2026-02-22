@@ -26,19 +26,19 @@
 
         <nav class="navbar navbar-expand-lg border-bottom bg-body px-4">
             <div class="container-fluid">
-        
+
                 <div class="d-flex flex-column lh-1">
                     <span class="fw-bold kv-title text-body-emphasis">M I N D W E A V E</span>
                     <small class="text-body-secondary">Knowledge Vault</small>
                 </div>
-        
+
                 <div class="ms-auto d-flex align-items-center gap-3">
-        
+
                     @guest
-                        <a href="" class="btn btn-outline-primary btn-sm">
+                        <a href="/login" class="btn btn-outline-primary btn-sm">
                             Login
                         </a>
-                        <a href="" class="btn btn-secondary btn-sm">
+                        <a href="/register" class="btn btn-secondary btn-sm">
                             Register
                         </a>
                     @else
@@ -52,19 +52,19 @@
                             </button>
                         </form>
                     @endguest
-        
+
                     <button class="btn btn-sm btn-outline-secondary" id="themeToggle">
                         <span id="themeIcon">🌙</span>
                     </button>
-        
+
                 </div>
             </div>
         </nav>
-        
+
         <main>
             @yield('content')
         </main>
-        
+
         @yield('scripts')
 
         <script>
@@ -77,19 +77,19 @@
             const html = document.documentElement;
             const toggleBtn = document.getElementById("themeToggle");
             const icon = document.getElementById("themeIcon");
-            
+
             const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
             const savedTheme = localStorage.getItem("theme") || (prefersDark ? "dark" : "light");
             html.setAttribute("data-bs-theme", savedTheme);
             icon.textContent = savedTheme === "dark" ? "☀️" : "🌙";
-            
+
             toggleBtn.addEventListener("click", () => {
                 const current = html.getAttribute("data-bs-theme");
                 const newTheme = current === "light" ? "dark" : "light";
-            
+
                 html.setAttribute("data-bs-theme", newTheme);
                 localStorage.setItem("theme", newTheme);
-            
+
                 icon.textContent = newTheme === "dark" ? "☀️" : "🌙";
             });
         </script>
